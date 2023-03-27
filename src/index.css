@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap');
+*,*::before,*::after{
+  box-sizing: border-box;
+}
+a{
+  text-decoration: none;
+}
+ul{
+  list-style-type: none;
+}
+:root{
+  --main-bg:hsl(222, 26%, 31%);
+  --screen-bg:hsl(224, 36%, 15%);
+  --list-bg:hsl(224, 36%, 15%);
+  --screen-txt-prev:rgb(255 255 255/75%);
+  --screen-txt-next:rgb(255 255 255/90%);
+  --key-pad:hsl(223, 31%, 20%);
+  --key-text:hsl(221, 14%, 31%);
+
+  --equal: hsl(6, 63%, 50%);
+  --equal-shadow:hsl(6, 70%, 34%);
+  --equal-hover:#f96c5b;
+  --equal-text:#FFF;
+  
+  --btn-txt:#FFF;
+  --key-hover:#FFF;
+  --key-color:hsl(30, 25%, 89%);
+  --key-shadow:hsl(28, 16%, 65%);
+  --key-special:hsl(225, 21%, 49%);
+  --key-special-shadow:hsl(224, 28%, 35%);
+  --key-special-hover:#a2b3e1;
+  --key-special-txt:#FFF;
+  --theme-color:#f96c5b;
+}
+body.second-theme{
+  --main-bg:hsl(0, 0%, 90%);
+  --screen-bg:hsl(0, 0%, 93%);
+  --list-bg:hsl(0, 0%, 93%);
+  --screen-txt-prev:rgb(0 0 0/75%);
+  --screen-txt-next:rgb(0 0 0/90%);
+  --key-pad:hsl(0, 5%, 81%);
+  --key-text:hsl(221, 14%, 31%);
+   --key-hover:#FFF;
+  --equal: hsl(25, 98%, 40%);
+  --equal-shadow:hsl(25, 99%, 27%);
+  --equal-hover:#ff8b38;
+  --equal-text:#FFF;
+  --btn-txt:rgb(0 , 0 , 0);
+  --key-color:hsl(45, 7%, 89%);
+  --key-shadow:hsl(28, 16%, 65%);
+  --key-special:hsl(185, 42%, 37%);
+  --key-special-shadow:hsl(185, 58%, 25%);
+  --key-special-hover:#62b5bd;
+  --key-special-txt:#FFF;
+  --theme-color:hsl(25, 98%, 40%);
+}
+body.third-theme{
+   --main-bg:hsl(268, 75%, 9%);
+  --screen-bg:hsl(268, 71%, 12%);
+  --list-bg:hsl(268, 71%, 12%);
+  --screen-txt-prev:hsl(52, 100%, 72%);
+  --screen-txt-next:hsl(52, 100%, 52%);
+  --key-pad:hsl(268, 71%, 12%);
+  --key-text:hsl(52, 100%, 62%);
+  --equal: hsl(176, 100%, 44%);
+  --equal-shadow:hsl(177, 92%, 70%);
+  --equal-hover:#94fff9;
+  --equal-text:hsl(198, 20%, 13%);
+  --btn-txt:hsl(52, 100%, 62%);
+  --key-color:hsl(281, 89%, 26%);
+  --key-shadow:hsl(285, 91%, 52%);
+  --key-hover:#6b34ac;
+  --key-special:hsl(268, 47%, 21%);
+  --key-special-shadow:hsl(290, 70%, 36%);
+  --key-special-hover:#8631b0;
+  --key-special-txt:#FFF;
+  --theme-color:hsl(176, 100%, 44%);
+}
+body {
+  margin: 0;
+  font-family: 'League Spartan', sans-serif;
+  background-color: var(--main-bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+.calculator-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--btn-txt);
+  width: 380px;
+  max-width: 90%;
+  margin: auto;
+}
+.calculator-header .theme{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.calculator-header .theme span{
+ font-size: 10px;
+}
+.calculator-header ul{
+  display: flex;
+  background-color: var(--list-bg);
+  gap:5px;
+  justify-content: space-evenly;
+  width: fit-content;
+  padding:5px 8px;
+  border-radius: 25px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  -ms-border-radius: 25px;
+  -o-border-radius: 25px;
+}
+.calculator-header ul li{
+  position: relative;
+  width: 11px;
+  height: 12px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  cursor: pointer;
+}
+.calculator-header ul li::after{
+  position: absolute;
+  top: -20px;
+  font-size: 10px;
+}
+.calculator-header ul li:first-of-type::after{
+  content: '1';
+}
+.calculator-header ul li:nth-of-type(2)::after{
+  content: '2';
+}
+.calculator-header ul li:last-of-type::after{
+  content: '3';
+}
+.calculator-header ul li.active{
+ 
+  background-color: var(--theme-color);
+}
+.calculator-grid{
+  width: 380px;
+  max-width: 90%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+.output{
+  height: 90px;
+  background-color:var(--screen-bg);
+  margin-bottom: 18px;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-end;
+  padding: 10px;
+}
+.previous-output{
+  color:var(--screen-txt-prev);
+  font-size: 1.2rem;
+}
+.current-output{
+  color:var(--screen-txt-next);
+  font-size: 1.5rem;
+}
+.number{
+  display: grid;
+  grid-template-columns: repeat(4,minmax(3rem,auto));
+  grid-template-rows: repeat(5,4rem);
+  background-color: var(--key-pad);
+  padding: 10px;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+}
+.span-two{
+  grid-column: span 2;
+}
+button{
+  color: var(--key-text);
+  font-size: 17px;
+  font-weight: 700;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background-color: var(--key-color);
+  box-shadow: 0 3px var(--key-shadow);
+}
+button:hover{
+  background-color: var(--key-hover);
+}
+.equal{
+  background-color: var(--equal);
+  box-shadow: 0px 2px 0px var(--equal-shadow);
+  color: var(--equal-text);
+}
+.special{
+  background-color: var(--key-special);
+  color: var(--key-special-txt);
+  box-shadow: 0 3px var(--key-special-shadow);
+}
+.special:hover{
+  background-color: var(--key-special-hover);
+}
+.equal:hover{
+  background-color: var(--equal-hover);
+}
+.f-32{
+  font-size: 32px !important;
+}
